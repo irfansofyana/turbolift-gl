@@ -25,9 +25,9 @@ import (
 	"github.com/rodaine/table"
 	"github.com/spf13/cobra"
 
-	"github.com/skyscanner/turbolift/internal/campaign"
-	"github.com/skyscanner/turbolift/internal/github"
-	"github.com/skyscanner/turbolift/internal/logging"
+	"github.com/irfansofyana/turbolift-gl/internal/campaign"
+	"github.com/irfansofyana/turbolift-gl/internal/github"
+	"github.com/irfansofyana/turbolift-gl/internal/logging"
 )
 
 var reactionsOrder = []string{
@@ -61,8 +61,8 @@ var (
 
 func NewPrStatusCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "pr-status",
-		Short: "Displays the status of PRs",
+		Use:   "mr-status",
+		Short: "Displays the status of MRs",
 		Run:   run,
 	}
 	cmd.Flags().BoolVar(&list, "list", false, "Displays a listing by PR")
@@ -140,7 +140,7 @@ func run(c *cobra.Command, _ []string) {
 		checkStatusActivity.EndWithSuccess()
 	}
 
-	logger.Successf("turbolift pr-status completed\n")
+	logger.Successf("turbolift mr-status completed\n")
 
 	logger.Println()
 

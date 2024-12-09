@@ -21,14 +21,14 @@ import (
 
 	"github.com/spf13/cobra"
 
-	cloneCmd "github.com/skyscanner/turbolift/cmd/clone"
-	commitCmd "github.com/skyscanner/turbolift/cmd/commit"
-	createPrsCmd "github.com/skyscanner/turbolift/cmd/create_prs"
-	"github.com/skyscanner/turbolift/cmd/flags"
-	foreachCmd "github.com/skyscanner/turbolift/cmd/foreach"
-	initCmd "github.com/skyscanner/turbolift/cmd/init"
-	prStatusCmd "github.com/skyscanner/turbolift/cmd/prstatus"
-	updatePrsCmd "github.com/skyscanner/turbolift/cmd/updateprs"
+	cloneCmd "github.com/irfansofyana/turbolift-gl/cmd/clone"
+	commitCmd "github.com/irfansofyana/turbolift-gl/cmd/commit"
+	createPrsCmd "github.com/irfansofyana/turbolift-gl/cmd/create_prs"
+	"github.com/irfansofyana/turbolift-gl/cmd/flags"
+	foreachCmd "github.com/irfansofyana/turbolift-gl/cmd/foreach"
+	initCmd "github.com/irfansofyana/turbolift-gl/cmd/init"
+	prStatusCmd "github.com/irfansofyana/turbolift-gl/cmd/prstatus"
+	updatePrsCmd "github.com/irfansofyana/turbolift-gl/cmd/updateprs"
 )
 
 var (
@@ -38,9 +38,9 @@ var (
 )
 
 var rootCmd = &cobra.Command{
-	Use:              "turbolift",
-	Short:            "Turbolift",
-	Long:             `Mass refactoring tool for repositories in GitHub`,
+	Use:              "turbolift-gl",
+	Short:            "Turbolift-gl",
+	Long:             `Mass refactoring tool for repositories in GitLab (Unofficial Gitlab version of https://github.com/skyscanner/turbolift).`,
 	Version:          fmt.Sprintf("%s (%s, built %s)", version, commit, date),
 	TraverseChildren: true,
 }

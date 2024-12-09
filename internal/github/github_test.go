@@ -22,7 +22,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/skyscanner/turbolift/internal/executor"
+	"github.com/irfansofyana/turbolift-gl/internal/executor"
 )
 
 func TestItReturnsErrorOnFailedFork(t *testing.T) {

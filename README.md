@@ -37,10 +37,10 @@ Note that the GitHub CLI, `gh` is a dependency of Turbolift and will be installe
 <details>
 <summary>Downloading binaries</summary>
 
-Pre-built binary archives can be downloaded from the [Releases](https://github.com/Skyscanner/turbolift/releases) page.
+Pre-built binary archives can be downloaded from the [Releases](https://github.com/irfansofyana/turbolift-gl/releases) page.
 
 * Download, extract the archive, and move it onto your `PATH`.
-* Note that the binaries are not currently notarized for MacOS Gatekeeper. If errors are displayed, use `xattr -c PATH_TO_TURBOLIFT_BINARY` to un-quarantine the binary, or right-click on the binary in Finder and choose 'Open' once to allow future execution. Distribution will be improved under https://github.com/Skyscanner/turbolift/issues/43.
+* Note that the binaries are not currently notarized for MacOS Gatekeeper. If errors are displayed, use `xattr -c PATH_TO_TURBOLIFT_BINARY` to un-quarantine the binary, or right-click on the binary in Finder and choose 'Open' once to allow future execution. Distribution will be improved under https://github.com/irfansofyana/turbolift-gl/issues/43.
 
 You must also have the GitHub CLI, `gh`, installed:
 
@@ -72,7 +72,7 @@ With great power comes great responsibility. We encourage Turbolift users to con
 * If you need to make a change to a large number of repositories, we've found that it's generally better to raise PRs to a small subset at first and collect feedback. Simply comment out repositories in `repos.txt` to make Turbolift temporarily ignore them.
 * For complicated or potentially contentious changes, think about ways to validate them before raising PRs. This could range from working in a pair, through writing a peer-reviewed script, all the way to preparing a design document for the planned changes.
 * If you can run automated tests locally, then do (e.g. `turbolift foreach ` to run linting and tests for each repository).
-* Raising draft PRs can be a good way to collect feedback, especially CI test results, with less pressure on reviewers. Use `turbolift create-prs --draft`
+* Raising draft PRs can be a good way to collect feedback, especially CI test results, with less pressure on reviewers. Use `turbolift create-mrs --draft`
 * In an organisation with shared infrastructure (e.g. CI), raising many PRs in a short timeframe can cause a lot of load. Consider spacing out PR creation using the `--sleep` option or by commenting out chunks of repositories in `repos.txt`.
 
 ## Detailed usage
@@ -202,9 +202,9 @@ Edit the PR title and description in `README.md`.
 
 Next, to push and raise PRs against changed repos, run:
 
-```turbolift create-prs```
+```turbolift create-mrs```
 
-Use `turbolift create-prs --sleep 30s` to, for example, force a 30s pause between creation of each PR. This can be helpful in reducing load on shared infrastructure.
+Use `turbolift create-mrs --sleep 30s` to, for example, force a 30s pause between creation of each PR. This can be helpful in reducing load on shared infrastructure.
 
 > Important: if raising many PRs, you may generate load on shared infrastucture such as CI. It is *highly* recommended that you:
 > * slow the rate of PR creation by making Turbolift sleep in between PRs
@@ -217,19 +217,19 @@ Occasionally you may want to work with more than one PR title and description. W
 The first line of the file chosen will be used as the PR title and the rest as the description body.
 
 ```console
-turbolift create-prs --repos repoFile1.txt --description prDescriptionFile1.md
-turbolift create-prs --repos repoFile2.txt --description prDescriptionFile2.md
+turbolift create-mrs --repos repoFile1.txt --description prDescriptionFile1.md
+turbolift create-mrs --repos repoFile2.txt --description prDescriptionFile2.md
 ```
 
 ### After creating PRs
 
 #### Viewing status
 
-While it's simple to search for PRs in GitHub search, `turbolift pr-status` can be used to view PR status in the terminal. For example:
+While it's simple to search for PRs in GitHub search, `turbolift mr-status` can be used to view PR status in the terminal. For example:
 
 Viewing a summary of PRs:
 ```
-$ turbolift pr-status
+$ turbolift mr-status
 ...
 State        Count
 Merged       139
@@ -241,7 +241,7 @@ No PR Found  1
 
 Viewing a detailed list of status per repo:
 ```
-$ turbolift pr-status --list
+$ turbolift mr-status --list
 ...
 Repository                                                State   Reviews           Build status    URL
 redacted/redacted                                         OPEN    REVIEW_REQUIRED   SUCCESS         https://github.redacted/redacted/redacted/pull/262
@@ -258,23 +258,23 @@ redacted/redacted                                         OPEN    REVIEW_REQUIRE
 
 #### Updating PRs
 
-Use the `update-prs` command to update PRs after creating them. Current options for updating PRs are:
+Use the `update-mrs` command to update PRs after creating them. Current options for updating PRs are:
 
 ##### Update PR titles and descriptions with `--amend-description`
 
-```turbolift update-prs --amend-description [--yes]```
+```turbolift update-mrs --amend-description [--yes]```
 
 By default, turbolift will read a revised PR Title and Description from `README.md`. The title is taken from the first heading line, and the description is the remainder of the file contents.
 
 As with creating PRs, if you need Turbolift to read these values from an alternative file, use the flag `--description PATH_TO_FILE`.
 
-```turblift update-prs --amend-description --description prDescriptionFile1.md```
+```turblift update-mrs --amend-description --description prDescriptionFile1.md```
 
 ##### Close PRs with the `--close` flag
 
-```turbolift update-prs --close [--yes]```
+```turbolift update-mrs --close [--yes]```
 
-If the flag `--yes` is not passed with an `update-prs` command, a confirmation prompt will be presented to the user.
+If the flag `--yes` is not passed with an `update-mrs` command, a confirmation prompt will be presented to the user.
 
 As always, use the `--repos` flag to specify an alternative repo file to repos.txt.
 

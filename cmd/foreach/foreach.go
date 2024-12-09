@@ -24,10 +24,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/skyscanner/turbolift/internal/campaign"
-	"github.com/skyscanner/turbolift/internal/colors"
-	"github.com/skyscanner/turbolift/internal/executor"
-	"github.com/skyscanner/turbolift/internal/logging"
+	"github.com/irfansofyana/turbolift-gl/internal/campaign"
+	"github.com/irfansofyana/turbolift-gl/internal/colors"
+	"github.com/irfansofyana/turbolift-gl/internal/executor"
+	"github.com/irfansofyana/turbolift-gl/internal/logging"
 
 	"github.com/alessio/shellescape"
 )

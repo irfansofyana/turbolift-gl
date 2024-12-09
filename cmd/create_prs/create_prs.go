@@ -22,15 +22,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/skyscanner/turbolift/internal/prompt"
+	"github.com/irfansofyana/turbolift-gl/internal/prompt"
 
 	"github.com/spf13/cobra"
 
-	"github.com/skyscanner/turbolift/internal/campaign"
-	"github.com/skyscanner/turbolift/internal/colors"
-	"github.com/skyscanner/turbolift/internal/git"
-	"github.com/skyscanner/turbolift/internal/github"
-	"github.com/skyscanner/turbolift/internal/logging"
+	"github.com/irfansofyana/turbolift-gl/internal/campaign"
+	"github.com/irfansofyana/turbolift-gl/internal/colors"
+	"github.com/irfansofyana/turbolift-gl/internal/git"
+	"github.com/irfansofyana/turbolift-gl/internal/github"
+	"github.com/irfansofyana/turbolift-gl/internal/logging"
 )
 
 var (
@@ -48,7 +48,7 @@ var (
 
 func NewCreatePRsCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-prs",
+		Use:   "create-mrs",
 		Short: "Create pull requests for all repositories with changes",
 		Run:   run,
 	}
@@ -138,9 +138,9 @@ func run(c *cobra.Command, _ []string) {
 	}
 
 	if errorCount == 0 {
-		logger.Successf("turbolift create-prs completed %s(%s, %s)\n", colors.Normal(), colors.Green(doneCount, " OK"), colors.Yellow(skippedCount, " skipped"))
+		logger.Successf("turbolift create-mrs completed %s(%s, %s)\n", colors.Normal(), colors.Green(doneCount, " OK"), colors.Yellow(skippedCount, " skipped"))
 	} else {
-		logger.Warnf("turbolift create-prs completed with %s %s(%s, %s, %s)\n", colors.Red("errors"), colors.Normal(), colors.Green(doneCount, " OK"), colors.Yellow(skippedCount, " skipped"), colors.Red(errorCount, " errored"))
+		logger.Warnf("turbolift create-mrs completed with %s %s(%s, %s, %s)\n", colors.Red("errors"), colors.Normal(), colors.Green(doneCount, " OK"), colors.Yellow(skippedCount, " skipped"), colors.Red(errorCount, " errored"))
 	}
 }
 

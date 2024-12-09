@@ -18,12 +18,13 @@ package commit
 import (
 	"bytes"
 	"errors"
-	"github.com/skyscanner/turbolift/internal/git"
-	"github.com/skyscanner/turbolift/internal/testsupport"
-	"github.com/stretchr/testify/assert"
 	"io"
 	"os"
 	"testing"
+
+	"github.com/irfansofyana/turbolift-gl/internal/git"
+	"github.com/irfansofyana/turbolift-gl/internal/testsupport"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestItCommitsAllWithChanges(t *testing.T) {

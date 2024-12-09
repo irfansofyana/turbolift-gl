@@ -16,10 +16,11 @@
 package git
 
 import (
-	"github.com/skyscanner/turbolift/internal/executor"
-	"github.com/stretchr/testify/assert"
 	"strings"
 	"testing"
+
+	"github.com/irfansofyana/turbolift-gl/internal/executor"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestItReturnsErrorOnFailedCheckout(t *testing.T) {

@@ -20,7 +20,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/skyscanner/turbolift/internal/testsupport"
+	"github.com/irfansofyana/turbolift-gl/internal/testsupport"
 )
 
 func TestItReadsSimpleRepoNamesFromReposFile(t *testing.T) {

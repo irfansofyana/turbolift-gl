@@ -24,9 +24,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/skyscanner/turbolift/internal/git"
-	"github.com/skyscanner/turbolift/internal/github"
-	"github.com/skyscanner/turbolift/internal/testsupport"
+	"github.com/irfansofyana/turbolift-gl/internal/git"
+	"github.com/irfansofyana/turbolift-gl/internal/github"
+	"github.com/irfansofyana/turbolift-gl/internal/testsupport"
 )
 
 func TestItAbortsIfReposFileNotFound(t *testing.T) {

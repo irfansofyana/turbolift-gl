@@ -1,4 +1,4 @@
-module github.com/skyscanner/turbolift
+module github.com/irfansofyana/turbolift-gl
 
 go 1.16
 

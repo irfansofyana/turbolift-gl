@@ -7,9 +7,9 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/skyscanner/turbolift/internal/github"
-	"github.com/skyscanner/turbolift/internal/prompt"
-	"github.com/skyscanner/turbolift/internal/testsupport"
+	"github.com/irfansofyana/turbolift-gl/internal/github"
+	"github.com/irfansofyana/turbolift-gl/internal/prompt"
+	"github.com/irfansofyana/turbolift-gl/internal/testsupport"
 )
 
 func TestItLogsClosePrErrorsButContinuesToTryAll(t *testing.T) {
@@ -22,7 +22,7 @@ func TestItLogsClosePrErrorsButContinuesToTryAll(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "Closing PR in org/repo1")
 	assert.Contains(t, out, "Closing PR in org/repo2")
-	assert.Contains(t, out, "turbolift update-prs completed with errors")
+	assert.Contains(t, out, "turbolift update-mrs completed with errors")
 	assert.Contains(t, out, "2 errored")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -41,7 +41,7 @@ func TestItClosesPrsSuccessfully(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "Closing PR in org/repo1")
 	assert.Contains(t, out, "Closing PR in org/repo2")
-	assert.Contains(t, out, "turbolift update-prs completed")
+	assert.Contains(t, out, "turbolift update-mrs completed")
 	assert.Contains(t, out, "2 OK")
 	assert.NotContains(t, out, "error")
 
@@ -61,7 +61,7 @@ func TestNoPRFound(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "no PR found for work/org/repo1 and branch "+filepath.Base(tempDir))
 	assert.Contains(t, out, "no PR found for work/org/repo2 and branch "+filepath.Base(tempDir))
-	assert.Contains(t, out, "turbolift update-prs completed")
+	assert.Contains(t, out, "turbolift update-mrs completed")
 	assert.Contains(t, out, "0 OK, 2 skipped")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -82,7 +82,7 @@ func TestItDoesNotClosePRsIfNotConfirmed(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotContains(t, out, "Closing PR in org/repo1")
 	assert.NotContains(t, out, "Closing PR in org/repo2")
-	assert.NotContains(t, out, "turbolift update-prs completed")
+	assert.NotContains(t, out, "turbolift update-mrs completed")
 	assert.NotContains(t, out, "2 OK")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{})
@@ -98,7 +98,7 @@ func TestItLogsUpdateDescriptionErrorsButContinuesToTryAll(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "Updating PR description in org/repo1")
 	assert.Contains(t, out, "Updating PR description in org/repo2")
-	assert.Contains(t, out, "turbolift update-prs completed with errors")
+	assert.Contains(t, out, "turbolift update-mrs completed with errors")
 	assert.Contains(t, out, "2 errored")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -118,7 +118,7 @@ func TestItUpdatesDescriptionsSuccessfully(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "Updating PR description in org/repo1")
 	assert.Contains(t, out, "Updating PR description in org/repo2")
-	assert.Contains(t, out, "turbolift update-prs completed")
+	assert.Contains(t, out, "turbolift update-mrs completed")
 	assert.Contains(t, out, "2 OK, 0 skipped")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -138,7 +138,7 @@ func TestItUpdatesDescriptionsFromAlternativeFile(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "Updating PR description in org/repo1")
 	assert.Contains(t, out, "Updating PR description in org/repo2")
-	assert.Contains(t, out, "turbolift update-prs completed")
+	assert.Contains(t, out, "turbolift update-mrs completed")
 	assert.Contains(t, out, "2 OK, 0 skipped")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -159,7 +159,7 @@ func TestItDoesNotUpdateDescriptionsIfNotConfirmed(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotContains(t, out, "Updating PR description in org/repo1")
 	assert.NotContains(t, out, "Updating PR description in org/repo2")
-	assert.NotContains(t, out, "turbolift update-prs completed")
+	assert.NotContains(t, out, "turbolift update-mrs completed")
 	assert.NotContains(t, out, "2 OK")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{})

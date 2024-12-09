@@ -23,8 +23,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/skyscanner/turbolift/internal/github"
-	"github.com/skyscanner/turbolift/internal/testsupport"
+	"github.com/irfansofyana/turbolift-gl/internal/github"
+	"github.com/irfansofyana/turbolift-gl/internal/testsupport"
 )
 
 func init() {
@@ -41,7 +41,7 @@ func TestItLogsSummaryInformation(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "Checking PR status for org/repo1")
 	assert.Contains(t, out, "Checking PR status for org/repo2")
-	assert.Contains(t, out, "turbolift pr-status completed")
+	assert.Contains(t, out, "turbolift mr-status completed")
 	assert.Regexp(t, "Open\\s+1", out)
 	assert.Regexp(t, "Merged\\s+1", out)
 	assert.Regexp(t, "Closed\\s+1", out)

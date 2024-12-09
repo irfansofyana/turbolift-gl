@@ -17,10 +17,11 @@ package logging
 
 import (
 	"fmt"
-	"github.com/briandowns/spinner"
-	"github.com/skyscanner/turbolift/internal/colors"
 	"io"
 	"strings"
+
+	"github.com/briandowns/spinner"
+	"github.com/irfansofyana/turbolift-gl/internal/colors"
 )
 
 // Activity is a buffered logger associated with an on-screen spinner.

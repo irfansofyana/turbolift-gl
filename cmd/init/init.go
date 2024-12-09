@@ -22,8 +22,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/skyscanner/turbolift/internal/colors"
-	"github.com/skyscanner/turbolift/internal/logging"
+	"github.com/irfansofyana/turbolift-gl/internal/colors"
+	"github.com/irfansofyana/turbolift-gl/internal/logging"
 	"github.com/spf13/cobra"
 )
 

@@ -16,7 +16,7 @@
 package main
 
 import (
-	"github.com/skyscanner/turbolift/cmd"
+	"github.com/irfansofyana/turbolift-gl/cmd"
 )
 
 func main() {

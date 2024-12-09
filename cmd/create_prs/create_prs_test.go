@@ -21,10 +21,10 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/skyscanner/turbolift/internal/git"
-	"github.com/skyscanner/turbolift/internal/github"
-	"github.com/skyscanner/turbolift/internal/prompt"
-	"github.com/skyscanner/turbolift/internal/testsupport"
+	"github.com/irfansofyana/turbolift-gl/internal/git"
+	"github.com/irfansofyana/turbolift-gl/internal/github"
+	"github.com/irfansofyana/turbolift-gl/internal/prompt"
+	"github.com/irfansofyana/turbolift-gl/internal/testsupport"
 )
 
 func TestItWarnsIfDescriptionFileTemplateIsUnchanged(t *testing.T) {
@@ -42,7 +42,7 @@ func TestItWarnsIfDescriptionFileTemplateIsUnchanged(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotContains(t, out, "Creating PR in org/repo1")
 	assert.NotContains(t, out, "Creating PR in org/repo2")
-	assert.NotContains(t, out, "turbolift create-prs completed")
+	assert.NotContains(t, out, "turbolift create-mrs completed")
 	assert.NotContains(t, out, "2 OK, 0 skipped")
 
 	fakePrompt.AssertCalledWith(t, "It looks like the PR title and/or description may not have been updated in README.md. Are you sure you want to proceed?")
@@ -63,7 +63,7 @@ func TestItWarnsIfOnlyPrTitleIsUnchanged(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotContains(t, out, "Creating PR in org/repo1")
 	assert.NotContains(t, out, "Creating PR in org/repo2")
-	assert.NotContains(t, out, "turbolift create-prs completed")
+	assert.NotContains(t, out, "turbolift create-mrs completed")
 	assert.NotContains(t, out, "2 OK, 0 skipped")
 
 	fakePrompt.AssertCalledWith(t, "It looks like the PR title and/or description may not have been updated in README.md. Are you sure you want to proceed?")
@@ -84,7 +84,7 @@ func TestItWarnsIfOnlyPrBodyIsUnchanged(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotContains(t, out, "Creating PR in org/repo1")
 	assert.NotContains(t, out, "Creating PR in org/repo2")
-	assert.NotContains(t, out, "turbolift create-prs completed")
+	assert.NotContains(t, out, "turbolift create-mrs completed")
 	assert.NotContains(t, out, "2 OK, 0 skipped")
 
 	fakePrompt.AssertCalledWith(t, "It looks like the PR title and/or description may not have been updated in README.md. Are you sure you want to proceed?")
@@ -107,7 +107,7 @@ func TestItWarnsIfDescriptionFileIsEmpty(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotContains(t, out, "Creating PR in org/repo1")
 	assert.NotContains(t, out, "Creating PR in org/repo2")
-	assert.NotContains(t, out, "turbolift create-prs completed")
+	assert.NotContains(t, out, "turbolift create-mrs completed")
 	assert.NotContains(t, out, "2 OK, 0 skipped")
 
 	fakePrompt.AssertCalledWith(t, "It looks like the PR title and/or description may not have been updated in custom.md. Are you sure you want to proceed?")
@@ -125,7 +125,7 @@ func TestItLogsCreatePrErrorsButContinuesToTryAll(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "Creating PR in org/repo1")
 	assert.Contains(t, out, "Creating PR in org/repo2")
-	assert.Contains(t, out, "turbolift create-prs completed with errors")
+	assert.Contains(t, out, "turbolift create-mrs completed with errors")
 	assert.Contains(t, out, "2 errored")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -146,7 +146,7 @@ func TestItLogsCreatePrSkippedButContinuesToTryAll(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "No PR created in org/repo1")
 	assert.Contains(t, out, "No PR created in org/repo2")
-	assert.Contains(t, out, "turbolift create-prs completed")
+	assert.Contains(t, out, "turbolift create-mrs completed")
 	assert.Contains(t, out, "0 OK, 2 skipped")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -165,7 +165,7 @@ func TestItLogsCreatePrsSucceeds(t *testing.T) {
 
 	out, err := runCommand()
 	assert.NoError(t, err)
-	assert.Contains(t, out, "turbolift create-prs completed")
+	assert.Contains(t, out, "turbolift create-mrs completed")
 	assert.Contains(t, out, "2 OK, 0 skipped")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -186,7 +186,7 @@ func TestItLogsCreateDraftPr(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Contains(t, out, "Creating Draft PR in org/repo1")
 	assert.Contains(t, out, "Creating Draft PR in org/repo2")
-	assert.Contains(t, out, "turbolift create-prs completed")
+	assert.Contains(t, out, "turbolift create-mrs completed")
 	assert.Contains(t, out, "2 OK, 0 skipped")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{
@@ -211,7 +211,7 @@ func TestItCreatesPrsFromAlternativeDescriptionFile(t *testing.T) {
 	assert.Contains(t, out, "Reading campaign data (repos.txt, custom.md)")
 	assert.Contains(t, out, "Creating PR in org/repo1")
 	assert.Contains(t, out, "Creating PR in org/repo2")
-	assert.Contains(t, out, "turbolift create-prs completed")
+	assert.Contains(t, out, "turbolift create-mrs completed")
 	assert.Contains(t, out, "2 OK, 0 skipped")
 
 	fakeGitHub.AssertCalledWith(t, [][]string{

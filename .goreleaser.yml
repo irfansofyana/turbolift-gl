@@ -12,7 +12,7 @@ builds:
       - windows
       - darwin
     ldflags:
-      - -s -w -X github.com/skyscanner/turbolift/cmd.version={{.Version}} -X github.com/skyscanner/turbolift/cmd.commit={{.Commit}} -X github.com/skyscanner/turbolift/cmd.date={{.Date}}
+      - -s -w -X github.com/irfansofyana/turbolift-gl/cmd.version={{.Version}} -X github.com/irfansofyana/turbolift-gl/cmd.commit={{.Commit}} -X github.com/irfansofyana/turbolift-gl/cmd.date={{.Date}}
 archives:
   - name_template: >-
       {{- .ProjectName }}_
@@ -27,7 +27,7 @@ checksum:
 brews:
   - name: turbolift
     description: Simple tool to help apply changes across many GitHub repositories simultaneously
-    homepage: https://github.com/Skyscanner/turbolift
+    homepage: https://github.com/irfansofyana/turbolift-gl
     license: Apache-2.0
     repository:
       owner: Skyscanner

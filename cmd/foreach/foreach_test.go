@@ -25,8 +25,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/skyscanner/turbolift/internal/executor"
-	"github.com/skyscanner/turbolift/internal/testsupport"
+	"github.com/irfansofyana/turbolift-gl/internal/executor"
+	"github.com/irfansofyana/turbolift-gl/internal/testsupport"
 )
 
 func TestItRejectsEmptyArgs(t *testing.T) {

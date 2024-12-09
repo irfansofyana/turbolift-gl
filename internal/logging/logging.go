@@ -21,8 +21,8 @@ import (
 	"time"
 
 	"github.com/briandowns/spinner"
-	"github.com/skyscanner/turbolift/cmd/flags"
-	"github.com/skyscanner/turbolift/internal/colors"
+	"github.com/irfansofyana/turbolift-gl/cmd/flags"
+	"github.com/irfansofyana/turbolift-gl/internal/colors"
 	"github.com/spf13/cobra"
 )
 

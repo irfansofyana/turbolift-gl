@@ -9,4 +9,4 @@ TODO: Describe the approach that was used to select repositories for this change
 TODO: Describe any shell commands, scripts, manual operations, etc, that were used to make changes
 
 <!-- Please keep the footer below, to support turbolift usage tracking -->
-<sub>This PR was generated using [turbolift](https://github.com/Skyscanner/turbolift).</sub>
+<sub>This PR was generated using [turbolift](https://github.com/irfansofyana/turbolift-gl).</sub>

@@ -16,10 +16,11 @@
 package init
 
 import (
-	"github.com/skyscanner/turbolift/internal/testsupport"
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"testing"
+
+	"github.com/irfansofyana/turbolift-gl/internal/testsupport"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAllFilesAreCreated(t *testing.T) {

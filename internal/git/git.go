@@ -20,7 +20,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/skyscanner/turbolift/internal/executor"
+	"github.com/irfansofyana/turbolift-gl/internal/executor"
 )
 
 var execInstance executor.Executor = executor.NewRealExecutor()

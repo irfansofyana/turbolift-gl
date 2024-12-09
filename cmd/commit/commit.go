@@ -21,10 +21,10 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/skyscanner/turbolift/internal/campaign"
-	"github.com/skyscanner/turbolift/internal/colors"
-	"github.com/skyscanner/turbolift/internal/git"
-	"github.com/skyscanner/turbolift/internal/logging"
+	"github.com/irfansofyana/turbolift-gl/internal/campaign"
+	"github.com/irfansofyana/turbolift-gl/internal/colors"
+	"github.com/irfansofyana/turbolift-gl/internal/git"
+	"github.com/irfansofyana/turbolift-gl/internal/logging"
 )
 
 var g git.Git = git.NewRealGit()
